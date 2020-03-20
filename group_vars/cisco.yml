@@ -1,0 +1,4 @@
+ansible_connection: network_cli
+ansible_network_os: ios
+ansible_user: ciscosshconnect
+ansible_password: 908oiejgioehjgoi34u4tg043hjgioh5j34kjr4e3h35e345hj45iuio435g
