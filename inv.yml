@@ -2,6 +2,12 @@ all:
   hosts:
     mail.example.com:
   children:
+    cisco1:
+       hosts:
+          192.168.175.17:
+    cisco2:
+       hosts:
+          192.168.175.33:
     braslist:
        hosts:
           bras1:

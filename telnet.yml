@@ -1,0 +1,15 @@
+- hosts: cisco2
+  gather_facts: no
+  connection: local
+  
+  tasks:
+   - name: send configuration commands to IOS via telnet
+     telnet:
+      user: ciscosshconnect
+      password: 908oiejgioehjgoi34u4tg043hjgioh5j34kjr4e3h35e345hj45iuio435g
+      login_prompt: "Username: "
+      prompts:
+        - "[>|#]"
+      command:
+        - configure terminal
+        - crypto key generate rsa modulus 1024

@@ -1,0 +1,21 @@
+---
+
+- hosts: test_cluster
+  gather_facts: false
+  connection: local
+  hosts: cisco
+  tasks:
+  - name: telnet,login and execute command
+    ignore_errors: true
+    expect:
+      command: telnet "{{ inventory_hostname }}"
+      responses:
+        (?i)username: "ciscosshconnect"
+        (?i)password: "908oiejgioehjgoi34u4tg043hjgioh5j34kjr4e3h35e345hj45iuio435g"
+        (?i)#: "{{COMMAND}}\r\nlogout\r\nexit\r\nquit"
+      echo: yes
+    register: telnet_output
+
+
+  - name: Debug output
+    debug: msg=telnet_output.stdout_lines

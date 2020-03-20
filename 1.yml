@@ -1,0 +1,21 @@
+- hosts: cisco1
+  gather_facts: no
+  connection: local
+ 
+  tasks:
+  - name: TELNET
+    telnet:
+      user: ciscosshconnect
+      password: "908oiejgioehjgoi34u4tg043hjgioh5j34kjr4e3h35e345hj45iuio435g"
+      login_prompt: "Username:  "
+      pause: 3
+      prompts:
+       - "[>|#]"
+      command:
+       - show run 
+       - show vtp status
+       - show vlan
+       - sh vers
+    register: telnet_output
+
+  - local_action: copy content={{ telnet_output.output }} dest=/root/ansible/{{ inventory_hostname }}.txt
